@@ -32,6 +32,16 @@ app.get("/api/get", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.post("/api/post", (req, res) => {
+    const {name, email, contact} = req.body;
+    const sqlInsert = "INSERT INTO contact(name, email, contact) VALUES(?,?,?)";
+    db.query(sqlInsert, [name, email, contact], (err, result) => {
+        if(err){
+            console.log(err);
+        }
+    });
+});
+
+app.listen(5000, () => {
+    console.log("Server is running on port 5000");
 });

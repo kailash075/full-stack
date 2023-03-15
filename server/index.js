@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/get", (req, res) => {
-    const sqlGet = "SELECT * FROM contact";
+    const sqlGet = "SELECT * FROM contact LIMIT 1";
     db.query(sqlGet, (err, result) => {
         res.send(result);
     });

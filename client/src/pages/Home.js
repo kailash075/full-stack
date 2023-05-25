@@ -1,7 +1,9 @@
+//@ts-check
+/** @param {any[]} arr */ 
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import "./Home.css";
-import {toast} from "react-toastify";
+// import {toast} from "react-toastify";
 import axios from "axios";
 
 const Home = () => {
@@ -36,7 +38,7 @@ const Home = () => {
                                <td>{item.email}</td>
                                <td>{item.contact}</td>
                                <td>
-                                    <Link>
+                                    <Link to={`/AddEdit/${item.id}`}>
                                         <button className="btn btn-edit">Edit</button>
                                     </Link>
                                     <button className="btn btn-delete">Delete</button>

@@ -1,0 +1,12 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .threedots:after {
+    content: "\2807";
+    font-size: 30px;
+  }
+  a{
+    text-decoration: none !important;
+  }
+  

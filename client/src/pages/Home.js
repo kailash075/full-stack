@@ -38,7 +38,7 @@ const Home = () => {
                                <td>{item.email}</td>
                                <td>{item.contact}</td>
                                <td>
-                                    <Link>
+                                    <Link to={`/AddEdit/${item.id}`}>
                                         <button className="btn btn-edit">Edit</button>
                                     </Link>
                                     <button className="btn btn-delete">Delete</button>

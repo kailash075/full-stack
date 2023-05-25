@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
+
 const cors = require("cors");
 
 const db = mysql.createPool({
@@ -28,11 +29,26 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/get", (req, res) => {
-    const sqlGet = "SELECT * FROM contact LIMIT 1";
+    const sqlGet = "SELECT * FROM contact";
+    console.log('hello');
     db.query(sqlGet, (err, result) => {
         res.send(result);
     });
 });
+
+app.get('/api/users/:id', (req, res) => {
+    const id = req.params.id;
+    db.query('SELECT * FROM contact WHERE id = ?', [id], (error, results, fields) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Internal server error');
+      } else if (results.length === 0) {
+        res.status(404).send('User not found');
+      } else {
+        res.send(results[0]);
+      }
+    });
+  });
 
 app.post("/api/post", (req, res) => {
     const {name, email, contact} = req.body;

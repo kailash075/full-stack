@@ -19,6 +19,9 @@ const Home = () => {
 
     return (
         <div style={{marginTop:"150px"}}>
+            <Link to={`/Sidebar`}>
+                <button className="btn btn-edit">Sidebar</button>
+            </Link>
             <table className="styled-table">
                 <thead>
                     <tr>
